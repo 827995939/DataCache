@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+
+
+        <TextView
+            android:text="0"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:textColor="#1b1b19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_count" />
+
+        <TextView
+            android:text="loading..."
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:textColor="#1b1b19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_txt" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:text="as"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="18dp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="86dp"
+            android:gravity="center"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp" />
+    </RelativeLayout>
+
+
+    <!--<ListView-->
+        <!--android:id="@+id/listView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></ListView>-->
+
+    <!--<net.sunniwell.antop.widget.EpgTextView-->
+        <!--android:id="@+id/title"-->
+        <!--android:textSize="14sp"-->
+        <!--android:layout_marginLeft="22dp"-->
+        <!--android:layout_marginRight="22dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+</LinearLayout>
