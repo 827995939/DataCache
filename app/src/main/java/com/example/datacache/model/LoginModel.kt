@@ -1,11 +1,16 @@
 package com.example.datacache.model
 
+import android.util.Log
 import com.example.datacache.entity.ProgramEntity
 import com.example.datacache.utils.CallBack
 import com.example.datacache.entity.ResultInfo
 import com.example.datacache.entity.UserEntity
 import com.example.datacache.services.LoginService
+import com.example.datacache.services.NewsService
 import com.xiaolei.http.annotation.Services
+import com.xiaolei.http.utils.RetrofitOkhttp
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class LoginModel() :ILoginModel{
 
@@ -14,17 +19,42 @@ class LoginModel() :ILoginModel{
     @JvmField
     @Services("LoginService") var userService: LoginService? =null
 
+    @JvmField
+    @Services("NewsService") var newsService: NewsService? =null
+
     override fun login() {
-        var result=ResultInfo()
-        result.code = 123
-        var u = UserEntity()
-        u.id =123
+//        val observer = newsService?.Query()
+//        observer?.subscribeOn(Schedulers.computation())
+//                ?.observeOn(AndroidSchedulers.mainThread())
+//                ?.subscribe({ result ->
+//                    var r  = ResultInfo()
+//                    r.code= 123
+//                    r.setBody(result)
+//                    callBack?.Successed(r)
+//                    Log.i("Tag","") },
+//                { error ->
+//                    Log.i("Tag","")
+//                },
+//                { ->
+//                    Log.i("Tag","")
+//                })
+        val observer = newsService?.getNewsContent()
+        observer?.subscribeOn(Schedulers.computation())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({ result ->
+                    var r  = ResultInfo()
+                    r.code= 123
+                    r.setBody(result)
+                    callBack?.Successed(r)
+                    Log.i("Tag","") },
+                        { error ->
+                            Log.i("Tag","")
+                        },
+                        { ->
+                            Log.i("Tag","")
+                        })
 
-        var p = ProgramEntity()
-        p.id = 0
-        result.setBody(p)
-        callBack?.Successed(result)
-
+        Log.i("Tag","")
 //        val observer: Observable<UserEntity>? = userService?.login("","")
 //        observer?.subscribe(
 //                { result -> Log.i("Tag","") },

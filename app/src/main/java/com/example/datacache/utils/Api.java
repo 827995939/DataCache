@@ -6,5 +6,5 @@ package com.example.datacache.utils;
 public final class Api {
 
     public static final String HOME = "content/1";
-
+    public static final String NEWS_CONTENT = "test/";
 }
