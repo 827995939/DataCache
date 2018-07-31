@@ -1,6 +1,5 @@
 package com.example.datacache
 
-import android.os.Bundle
 import android.util.Log
 import com.example.datacache.compand.CompActivity
 import com.example.datacache.entity.ResultInfo
@@ -13,12 +12,14 @@ class MainActivity : CompActivity() {
     @JvmField
     @Models(name = "ILoginModel") var loginModel: ILoginModel?=null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        loginModel?.callBack = this
-        loginModel?.login()
-        Log.i("TAG","")
+    override fun getLayout(): Int {
+        return R.layout.activity_main
+    }
+
+    override fun init() {
+//        loginModel?.callBack = this
+//        loginModel?.login()
+//        Log.i("TAG","")
     }
 
     override fun Failure() {
